@@ -1,0 +1,20 @@
+trigger:
+- none
+
+schedules:
+- cron: "0 2 * * 4"
+  displayName: Weekly check for new Azure Pipelines release
+  branches:
+    include:
+    - master
+
+pool:
+  vmImage: windows-latest
+
+steps:
+- task: PowerShell@2
+  displayName: 'run Update-Agents.ps1'
+  inputs:
+    filePath: 'scripts/Update-Agents.ps1'
+  env:
+    PAT_SECRET: $(PAT)
