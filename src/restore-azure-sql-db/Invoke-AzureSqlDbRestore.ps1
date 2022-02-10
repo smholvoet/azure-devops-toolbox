@@ -17,7 +17,7 @@ $TargetResourceGroup    = ""
 $TargetSubscription     = ""
 $TargetServer           = ""
 $TargetAdminUser        = ""
-$SourceAdminPassword    = (az keyvault secret show --name "" `
+$TargetAdminPassword    = (az keyvault secret show --name "" `
                                                    --vault-name "" `
                                                    --query "")
 
